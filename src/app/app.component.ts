@@ -1,13 +1,11 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { Component } from "@angular/core";
+      
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: "my-app",
+    template: `<label>Введите имя:</label>
+                 <input [(ngModel)]="name" placeholder="name">
+                 <h1>Добро пожаловать {{name}}!</h1>`
 })
-export class AppComponent {
-  title = 'LibraryClient';
+export class AppComponent { 
+    name= '';
 }
