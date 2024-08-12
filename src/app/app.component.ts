@@ -3,15 +3,28 @@ import {Component} from "@angular/core";
 @Component({
   selector: "my-app",
   template: `
-    <div>
-      <input [(ngModel)]="age" min="1" type="number"/>
-      <h2>@if (age > 0 && age < 110) {
-        Your age is {{ age }}
-      } @else {
-        age is undefined
-      }</h2>
-    </div>`
+    <input [ngModel]="op"/>
+    <p>a = {{ a }} b = {{ b }}</p>
+    <p>Результат:
+      @switch (op) {
+        @case ("+") {
+          {{ a + b }}
+        }
+        @case ("-") {
+          {{ a - b }}
+        }
+        @case ("*") {
+          {{ a * b }}
+        }
+        @default {
+          Неизвестная операция
+        }
+      }
+    </p>
+  `
 })
 export class AppComponent {
-  age: number | undefined = undefined;
+  op = "*";
+  a = 10;
+  b = 5;
 }
