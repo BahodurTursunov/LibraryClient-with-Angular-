@@ -3,28 +3,11 @@ import {Component} from "@angular/core";
 @Component({
   selector: "my-app",
   template: `
-    <input [ngModel]="op"/>
-    <p>a = {{ a }} b = {{ b }}</p>
-    <p>Результат:
-      @switch (op) {
-        @case ("+") {
-          {{ a + b }}
-        }
-        @case ("-") {
-          {{ a - b }}
-        }
-        @case ("*") {
-          {{ a * b }}
-        }
-        @default {
-          Неизвестная операция
-        }
-      }
-    </p>
+    @for (item of items; track item) {
+      <li>{{ item }}</li>
+    }
   `
 })
 export class AppComponent {
-  op = "*";
-  a = 10;
-  b = 5;
+  items = ["Tom", "Eliot", "Ange"];
 }
